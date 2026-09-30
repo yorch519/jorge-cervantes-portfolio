@@ -9,7 +9,7 @@ export default function Hero() {
         <ModelCanvas />
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.hud}>
         <p className={styles.kicker}>Productor Multimedia</p>
         <h1 className={styles.title}>Jorge Cervantes</h1>
         <p className={styles.location}>Ciudad Obregón, Sonora, México</p>
