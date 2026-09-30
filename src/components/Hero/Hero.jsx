@@ -83,6 +83,8 @@ export default function Hero() {
         </div>
       </div>
 
+      <p className={styles.hint}>Arrastra para rotar · +/− para zoom</p>
+
       <a className={styles.scroll} href="#especialidad" aria-label="Desplázate hacia abajo">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M6 9l6 6 6-6" />

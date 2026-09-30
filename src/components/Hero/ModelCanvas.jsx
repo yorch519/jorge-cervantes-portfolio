@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useMemo, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { ContactShadows, OrbitControls, useGLTF } from '@react-three/drei'
 import { useReducedMotion } from 'framer-motion'
 import * as THREE from 'three'
 import styles from './ModelCanvas.module.css'
@@ -100,6 +100,15 @@ export default function ModelCanvas() {
           <directionalLight position={[4, 5, 3]} intensity={2.2} color="#ff8800" />
           <directionalLight position={[-5, 3, -4]} intensity={0.6} color="#ffffff" />
           <Character />
+          <ContactShadows
+            position={[0, -0.02, 0]}
+            opacity={0.35}
+            scale={6}
+            blur={2.5}
+            far={3.5}
+            resolution={256}
+            color="#000000"
+          />
           <OrbitControls
             ref={controlsRef}
             enableDamping
