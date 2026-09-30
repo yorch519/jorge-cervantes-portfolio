@@ -7,6 +7,7 @@ export const codeProjects = [
     repo: '#',
     demo: '#',
     featured: true,
+    tone: 'teal',
   },
   {
     id: 'psx-camera',
@@ -16,6 +17,7 @@ export const codeProjects = [
     repo: '#',
     demo: '#',
     featured: false,
+    tone: 'coral',
   },
   {
     id: 'shader-noise',
@@ -25,5 +27,6 @@ export const codeProjects = [
     repo: '#',
     demo: '#',
     featured: false,
+    tone: 'orange',
   },
 ]

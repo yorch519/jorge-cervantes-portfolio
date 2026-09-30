@@ -6,6 +6,7 @@ export const specialtyProjects = [
     meta: 'out_render_01.png · 3840×2160 · Arnold',
     link: '#',
     featured: true,
+    tone: 'orange',
   },
   {
     id: 'reel-video',
@@ -14,6 +15,7 @@ export const specialtyProjects = [
     meta: 'reel_2026.mp4 · 00:45 · 1920×1080',
     link: '#',
     featured: false,
+    tone: 'coral',
   },
   {
     id: 'anim-loop',
@@ -22,5 +24,6 @@ export const specialtyProjects = [
     meta: 'anim_loop.mov · 00:08 · 1080×1080',
     link: '#',
     featured: false,
+    tone: 'teal',
   },
 ]

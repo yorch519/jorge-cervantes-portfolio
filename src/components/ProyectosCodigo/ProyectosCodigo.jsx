@@ -7,6 +7,12 @@ const reveal = {
   visible: { opacity: 1, y: 0 },
 }
 
+const TONE = {
+  orange: 'var(--accent)',
+  coral: 'var(--accent-warm)',
+  teal: 'var(--accent-cool)',
+}
+
 export default function ProyectosCodigo() {
   return (
     <section className={styles.section} id="codigo">
@@ -28,6 +34,7 @@ export default function ProyectosCodigo() {
             <motion.article
               key={project.id}
               className={project.featured ? styles.featured : styles.card}
+              style={{ '--tone': TONE[project.tone] }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}

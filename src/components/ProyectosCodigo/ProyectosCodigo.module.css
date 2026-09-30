@@ -62,7 +62,7 @@
 .stack {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--tone, var(--accent));
   white-space: nowrap;
 }
 
