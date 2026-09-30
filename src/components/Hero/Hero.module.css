@@ -34,8 +34,8 @@
   border-left: 2px solid var(--accent);
   background: linear-gradient(
     to right,
-    rgba(30, 30, 30, 0.85),
-    rgba(30, 30, 30, 0)
+    rgba(30, 30, 30, 0.98),
+    rgba(30, 30, 30, 0.8)
   );
 }
 
