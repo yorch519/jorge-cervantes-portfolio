@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useMemo } from 'react'
+import React, { Suspense, useEffect, useMemo, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { useReducedMotion } from 'framer-motion'
@@ -43,25 +43,6 @@ function TouchScroll() {
   return null
 }
 
-function Controls() {
-  const reduced = useReducedMotion()
-
-  return (
-    <OrbitControls
-      enableDamping
-      dampingFactor={0.08}
-      autoRotate={!reduced}
-      autoRotateSpeed={0.6}
-      enablePan={false}
-      minDistance={2.5}
-      maxDistance={7}
-      minPolarAngle={0.4}
-      maxPolarAngle={Math.PI / 2}
-      target={[0, 1.5, 0]}
-    />
-  )
-}
-
 function LoadingViewport() {
   return (
     <div className={styles.loader}>
@@ -89,6 +70,12 @@ class CanvasErrorBoundary extends React.Component {
 }
 
 export default function ModelCanvas() {
+  const controlsRef = useRef(null)
+  const reduced = useReducedMotion()
+
+  const zoomIn = () => controlsRef.current?.dollyIn(1.15)
+  const zoomOut = () => controlsRef.current?.dollyOut(1.15)
+
   return (
     <CanvasErrorBoundary fallback={<LoadingViewport />}>
       <Suspense fallback={<LoadingViewport />}>
@@ -101,10 +88,32 @@ export default function ModelCanvas() {
           <directionalLight position={[4, 5, 3]} intensity={1.5} color="#ff6b00" />
           <directionalLight position={[-5, 3, -4]} intensity={0.6} color="#ffffff" />
           <Character />
-          <Controls />
+          <OrbitControls
+            ref={controlsRef}
+            enableDamping
+            dampingFactor={0.08}
+            autoRotate={!reduced}
+            autoRotateSpeed={0.6}
+            enablePan={false}
+            enableZoom={false}
+            minDistance={2.5}
+            maxDistance={7}
+            minPolarAngle={0.4}
+            maxPolarAngle={Math.PI / 2}
+            target={[0, 1.5, 0]}
+          />
           <TouchScroll />
         </Canvas>
       </Suspense>
+
+      <div className={styles.zoom}>
+        <button className={styles.zoomBtn} onClick={zoomIn} aria-label="Acercar">
+          +
+        </button>
+        <button className={styles.zoomBtn} onClick={zoomOut} aria-label="Alejar">
+          −
+        </button>
+      </div>
     </CanvasErrorBoundary>
   )
 }

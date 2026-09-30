@@ -46,7 +46,7 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} id="inicio">
-      <div className={styles.viewport} aria-hidden="true">
+      <div className={styles.viewport}>
         <ModelCanvas />
       </div>
 
