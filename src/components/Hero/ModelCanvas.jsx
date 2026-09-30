@@ -8,6 +8,8 @@ import styles from './ModelCanvas.module.css'
 useGLTF.preload('/personaje.glb')
 
 const TARGET_HEIGHT = 3
+const CAMERA_POSITION = [0, 1.6, 5.2]
+const TARGET = [0, 1.5, 0]
 
 function Character() {
   const { scene } = useGLTF('/personaje.glb')
@@ -76,12 +78,22 @@ export default function ModelCanvas() {
   const zoomIn = () => controlsRef.current?.dollyIn(1.15)
   const zoomOut = () => controlsRef.current?.dollyOut(1.15)
 
+  const resetView = () => {
+    const controls = controlsRef.current
+    if (!controls) return
+    controls.target.set(...TARGET)
+    controls.object.position.set(...CAMERA_POSITION)
+    controls.object.zoom = 1
+    controls.object.updateProjectionMatrix()
+    controls.update()
+  }
+
   return (
     <CanvasErrorBoundary fallback={<LoadingViewport />}>
       <Suspense fallback={<LoadingViewport />}>
         <Canvas
           dpr={[1, 1.75]}
-          camera={{ position: [0, 1.6, 5.2], fov: 40 }}
+          camera={{ position: CAMERA_POSITION, fov: 40 }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         >
           <hemisphereLight color="#e8e8e8" groundColor="#232323" intensity={0.7} />
@@ -100,13 +112,19 @@ export default function ModelCanvas() {
             maxDistance={7}
             minPolarAngle={Math.PI / 2 - 0.6}
             maxPolarAngle={Math.PI / 2 + 0.6}
-            target={[0, 1.5, 0]}
+            target={TARGET}
           />
           <TouchScroll />
         </Canvas>
       </Suspense>
 
       <div className={styles.zoom}>
+        <button className={styles.zoomBtn} onClick={resetView} aria-label="Restablecer vista">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 12a9 9 0 1 0 2.6-6.4L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
+        </button>
         <button className={styles.zoomBtn} onClick={zoomIn} aria-label="Acercar">
           +
         </button>
