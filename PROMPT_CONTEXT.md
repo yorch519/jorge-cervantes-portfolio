@@ -4,7 +4,13 @@ Bitácora de decisiones técnicas. Actualizar al cerrar cada fase.
 
 ## Estado
 - Fases 0–8 completadas (estructura completa, contenido en placeholder).
+- Rama `feat/hero-mejoras`: iluminación, HUD, íconos y zoom del Hero (pendiente de aprobación para merge a `main`).
 - Pendiente: rellenar contenido real en `/src/data/`.
+
+## Flujo de trabajo Git
+- `main` estable + ramas cortas `feat/<tema>`; merge directo a `main` + push.
+- Commits en convención española: `tipo(ámbito): descripción`.
+- `.opencode/` excluido del repo (en `.gitignore`).
 
 ## Stack (versiones fijadas)
 - React 18.3.1 / react-dom 18.3.1
@@ -23,6 +29,9 @@ Bitácora de decisiones técnicas. Actualizar al cerrar cada fase.
 ## Decisiones clave
 - Identidad visual Maya: fondo `#1E1E1E`, tarjetas `#252525`, acento `#FF6B00`.
 - Modelo 3D normalizado en runtime: auto-centrado + escalado a 3 unidades de alto, base en y=0.
+- Iluminación: `hemisphereLight` (pareja, la espalda nunca queda negra) + direccional naranja de acento + rim blanco trasero.
+- Layout Hero: HUD estilo Maya en esquina inferior izquierda (modelo centrado); íconos de contacto (copiar email + LinkedIn).
+- Zoom: `enableZoom={false}` (la rueda scrollea) + botones `+`/`−` que llaman `dollyIn()/dollyOut()`.
 - Scroll móvil: `touch-action: pan-y` en el canvas (un dedo = scroll, autoRotate gira el modelo).
 - `prefers-reduced-motion` respetado (autoRotate y reveals desactivados; MotionConfig reducedMotion="user").
 - Error boundary + Suspense con fallback de "viewport de carga" (el texto del Hero no depende del 3D).
