@@ -42,6 +42,25 @@
   color: var(--accent-warm);
 }
 
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.link:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    transition: none;
+  }
+
+  .link:hover .arrow {
+    transform: none;
+  }
+}
+
 .copyright {
   font-family: var(--font-mono);
   font-size: 0.75rem;

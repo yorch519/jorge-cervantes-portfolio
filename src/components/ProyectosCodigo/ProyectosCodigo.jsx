@@ -37,6 +37,7 @@ export default function ProyectosCodigo() {
               style={{ '--tone': TONE[project.tone] }}
               initial="hidden"
               whileInView="visible"
+              whileHover={{ y: -4 }}
               viewport={{ once: true, amount: 0.2 }}
               variants={reveal}
               transition={{ duration: 0.5 }}
@@ -48,10 +49,10 @@ export default function ProyectosCodigo() {
               <p className={styles.desc}>{project.description}</p>
               <div className={styles.links}>
                 <a className={styles.link} href={project.repo} target="_blank" rel="noreferrer">
-                  repo ↗
+                  repo <span className={styles.arrow}>↗</span>
                 </a>
                 <a className={styles.link} href={project.demo} target="_blank" rel="noreferrer">
-                  demo ↗
+                  demo <span className={styles.arrow}>↗</span>
                 </a>
               </div>
             </motion.article>
