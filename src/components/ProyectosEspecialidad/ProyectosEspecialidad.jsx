@@ -39,6 +39,7 @@ export default function ProyectosEspecialidad() {
                 style={{ '--tone': TONE[project.tone] }}
                 initial="hidden"
                 whileInView="visible"
+                whileHover={{ y: -4 }}
                 viewport={{ once: true, amount: 0.2 }}
                 variants={reveal}
                 transition={{ duration: 0.5 }}

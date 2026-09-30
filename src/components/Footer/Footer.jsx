@@ -26,10 +26,10 @@ export default function Footer() {
             {contact.email}
           </a>
           <a className={styles.link} href={contact.github} target="_blank" rel="noreferrer">
-            GitHub ↗
+            GitHub <span className={styles.arrow}>↗</span>
           </a>
           <a className={styles.link} href={contact.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn ↗
+            LinkedIn <span className={styles.arrow}>↗</span>
           </a>
         </div>
 

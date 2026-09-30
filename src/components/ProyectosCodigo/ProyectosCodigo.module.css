@@ -45,6 +45,13 @@
   border: 1px solid var(--card-bg);
   border-radius: var(--radius);
   padding: 1.5rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.featured:hover {
+  border-color: var(--tone, var(--accent));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .head {
@@ -89,6 +96,25 @@
 
 .link:hover {
   color: var(--accent);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.link:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    transition: none;
+  }
+
+  .link:hover .arrow {
+    transform: none;
+  }
 }
 
 @media (max-width: 720px) {

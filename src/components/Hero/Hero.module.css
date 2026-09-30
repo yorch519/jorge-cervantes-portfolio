@@ -93,7 +93,12 @@
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   color: var(--text-primary);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.iconBtn:active,
+.iconLink:active {
+  transform: scale(0.96);
 }
 
 .iconBtn:hover,
