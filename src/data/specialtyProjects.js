@@ -1,0 +1,26 @@
+export const specialtyProjects = [
+  {
+    id: 'render-01',
+    title: 'Render de Producto — Modelo 3D',
+    description: 'Render fotorrealista de un objeto modelado en 3D, iluminación de estudio y composición final.',
+    meta: 'out_render_01.png · 3840×2160 · Arnold',
+    link: '#',
+    featured: true,
+  },
+  {
+    id: 'reel-video',
+    title: 'Reel de Video — Edición y Motion',
+    description: 'Corte de piezas audiovisuales con motion graphics y ritmo de edición.',
+    meta: 'reel_2026.mp4 · 00:45 · 1920×1080',
+    link: '#',
+    featured: false,
+  },
+  {
+    id: 'anim-loop',
+    title: 'Animación — Loop Cinemático',
+    description: 'Loop corto de animación procedural para piezas de ambiente.',
+    meta: 'anim_loop.mov · 00:08 · 1080×1080',
+    link: '#',
+    featured: false,
+  },
+]
