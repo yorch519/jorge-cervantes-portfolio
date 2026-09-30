@@ -1,11 +1,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   overflow: hidden;
-  padding: 0 6vw;
 }
 
 .viewport {
@@ -14,22 +10,31 @@
   z-index: 0;
 }
 
-.content {
-  position: relative;
+.hud {
+  position: absolute;
+  left: 6vw;
+  bottom: 3.5rem;
   z-index: 1;
-  max-width: 720px;
+  max-width: 460px;
+  padding: 1rem 1.5rem 1rem 1.25rem;
+  border-left: 2px solid var(--accent);
+  background: linear-gradient(
+    to right,
+    rgba(30, 30, 30, 0.72),
+    rgba(30, 30, 30, 0)
+  );
 }
 
 .kicker {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .title {
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -38,15 +43,16 @@
 
 .location {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
 }
 
 .about {
-  margin: 1.5rem 0 2rem;
+  margin: 1.25rem 0 1.5rem;
   max-width: 42ch;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
 }
 
 .cta {
@@ -55,7 +61,7 @@
   color: #1e1e1e;
   font-family: var(--font-mono);
   font-weight: 600;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.25rem;
   border-radius: var(--radius);
   transition: background 0.2s ease;
 }
@@ -87,5 +93,17 @@
 @media (prefers-reduced-motion: reduce) {
   .scroll {
     animation: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hud {
+    left: 5vw;
+    bottom: 4.5rem;
+    max-width: calc(100vw - 10vw);
+  }
+
+  .scroll {
+    bottom: 1.5rem;
   }
 }
