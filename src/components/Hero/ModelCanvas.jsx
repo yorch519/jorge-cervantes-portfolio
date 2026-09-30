@@ -86,7 +86,7 @@ export default function ModelCanvas() {
         >
           <color attach="background" args={['#1e1e1e']} />
           <hemisphereLight color="#e8e8e8" groundColor="#232323" intensity={0.7} />
-          <directionalLight position={[4, 5, 3]} intensity={1.5} color="#ff6b00" />
+          <directionalLight position={[4, 5, 3]} intensity={2.2} color="#ff8800" />
           <directionalLight position={[-5, 3, -4]} intensity={0.6} color="#ffffff" />
           <Character />
           <OrbitControls
@@ -99,8 +99,8 @@ export default function ModelCanvas() {
             enableZoom={false}
             minDistance={2.5}
             maxDistance={7}
-            minPolarAngle={0.4}
-            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2 - 0.6}
+            maxPolarAngle={Math.PI / 2 + 0.6}
             target={[0, 1.5, 0]}
           />
           <TouchScroll />
