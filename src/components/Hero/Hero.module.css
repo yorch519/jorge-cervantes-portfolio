@@ -27,16 +27,15 @@
 .hud {
   position: absolute;
   left: 6vw;
-  bottom: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
   max-width: 460px;
-  padding: 1rem 1.5rem 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--bg-elevated);
   border-left: 2px solid var(--accent);
-  background: linear-gradient(
-    to right,
-    rgba(30, 30, 30, 0.98),
-    rgba(30, 30, 30, 0.8)
-  );
+  border-radius: var(--radius);
 }
 
 .kicker {
@@ -125,8 +124,8 @@
 @media (max-width: 720px) {
   .hud {
     left: 5vw;
-    bottom: 4.5rem;
     max-width: calc(100vw - 10vw);
+    padding: 1rem 1.25rem;
   }
 
   .scroll {
