@@ -82,8 +82,9 @@ export default function ModelCanvas() {
         <Canvas
           dpr={[1, 1.75]}
           camera={{ position: [0, 1.6, 5.2], fov: 40 }}
-          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+          gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
         >
+          <color attach="background" args={['#1e1e1e']} />
           <hemisphereLight color="#e8e8e8" groundColor="#232323" intensity={0.7} />
           <directionalLight position={[4, 5, 3]} intensity={1.5} color="#ff6b00" />
           <directionalLight position={[-5, 3, -4]} intensity={0.6} color="#ffffff" />
