@@ -68,6 +68,16 @@
   color: var(--text-primary);
 }
 
+.kw {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.kwCool {
+  color: var(--accent-cool);
+  font-weight: 600;
+}
+
 .icons {
   display: flex;
   gap: 1.5rem;
@@ -88,7 +98,7 @@
 
 .iconBtn:hover,
 .iconLink:hover {
-  color: var(--accent);
+  color: var(--accent-warm);
 }
 
 .iconLabel {

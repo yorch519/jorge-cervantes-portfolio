@@ -13,7 +13,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-warm);
   margin-bottom: 0.75rem;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .link:hover {
-  color: var(--accent);
+  color: var(--accent-warm);
 }
 
 .copyright {

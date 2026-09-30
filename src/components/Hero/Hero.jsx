@@ -55,8 +55,9 @@ export default function Hero() {
         <h1 className={styles.title}>Jorge Cervantes</h1>
         <p className={styles.location}>Ciudad Obregón, Sonora, México</p>
         <p className={styles.about}>
-          Entre arte visual, 3D y código. Produzco renders, video y aplicaciones web
-          con foco en el resultado, no en la teoría.
+          Entre arte visual, <span className={styles.kw}>3D</span> y{' '}
+          <span className={styles.kwCool}>código</span>. Produzco renders, video y
+          aplicaciones web con foco en el resultado, no en la teoría.
         </p>
 
         <div className={styles.icons}>
