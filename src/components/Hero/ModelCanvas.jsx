@@ -97,9 +97,9 @@ export default function ModelCanvas() {
           camera={{ position: [0, 1.6, 5.2], fov: 40 }}
           gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         >
-          <ambientLight intensity={0.55} />
-          <directionalLight position={[4, 5, 3]} intensity={2.4} color="#ff6b00" />
-          <directionalLight position={[-4, 2, -2]} intensity={0.8} color="#ffffff" />
+          <hemisphereLight color="#e8e8e8" groundColor="#232323" intensity={0.7} />
+          <directionalLight position={[4, 5, 3]} intensity={1.5} color="#ff6b00" />
+          <directionalLight position={[-5, 3, -4]} intensity={0.6} color="#ffffff" />
           <Character />
           <Controls />
           <TouchScroll />
