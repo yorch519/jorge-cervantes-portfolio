@@ -63,6 +63,19 @@
   background-size: 24px 24px;
 }
 
+.preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 20%,
+    var(--tone, var(--accent)),
+    transparent 60%
+  );
+  opacity: 0.14;
+  pointer-events: none;
+}
+
 .featured .preview {
   min-height: 420px;
 }
@@ -71,7 +84,7 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.15em;
-  color: var(--text-secondary);
+  color: var(--tone, var(--text-secondary));
   background: var(--bg-color);
   padding: 0.4rem 0.75rem;
   border-radius: var(--radius);
@@ -105,7 +118,7 @@
 }
 
 .metaAccent {
-  color: var(--accent);
+  color: var(--tone, var(--accent));
 }
 
 @media (max-width: 720px) {
