@@ -25,7 +25,7 @@ export default function ProyectosCodigo() {
           variants={reveal}
           transition={{ duration: 0.5 }}
         >
-          <p className={styles.label}>02 — Código</p>
+          <p className={styles.label}>03 — Código</p>
           <h2 className={styles.title}>As bajo la manga</h2>
         </motion.header>
 

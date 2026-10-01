@@ -18,7 +18,7 @@ export default function Footer() {
         variants={reveal}
         transition={{ duration: 0.5 }}
       >
-        <p className={styles.label}>03 — Contacto</p>
+        <p className={styles.label}>04 — Contacto</p>
         <h2 className={styles.title}>¿Trabajamos juntos?</h2>
 
         <div className={styles.links}>
