@@ -25,7 +25,7 @@ export default function ProyectosEspecialidad() {
           variants={reveal}
           transition={{ duration: 0.5 }}
         >
-          <p className={styles.label}>01 — Especialidad</p>
+          <p className={styles.label}>02 — Especialidad</p>
           <h2 className={styles.title}>Render · Video · Animación</h2>
         </motion.header>
 
