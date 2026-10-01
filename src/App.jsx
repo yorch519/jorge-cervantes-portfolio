@@ -1,5 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 import Hero from './components/Hero/Hero.jsx'
+import Trayectoria from './components/Trayectoria/Trayectoria.jsx'
 import ProyectosEspecialidad from './components/ProyectosEspecialidad/ProyectosEspecialidad.jsx'
 import ProyectosCodigo from './components/ProyectosCodigo/ProyectosCodigo.jsx'
 import Footer from './components/Footer/Footer.jsx'
@@ -9,6 +10,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <main className="app">
         <Hero />
+        <Trayectoria />
         <ProyectosEspecialidad />
         <ProyectosCodigo />
         <Footer />
