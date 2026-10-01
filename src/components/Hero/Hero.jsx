@@ -51,18 +51,15 @@ export default function Hero() {
       </div>
 
       <div className={styles.hud}>
-        <div className={styles.head}>
-          {contact.photo ? (
-            <img className={styles.avatar} src={contact.photo} alt="Jorge Cervantes" />
-          ) : (
-            <div className={styles.avatarPlaceholder}>JC</div>
-          )}
-          <div className={styles.headText}>
-            <p className={styles.kicker}>Productor Multimedia</p>
-            <h1 className={styles.title}>Jorge Cervantes</h1>
-          </div>
-        </div>
+        <p className={styles.kicker}>Productor Multimedia</p>
 
+        {contact.photo ? (
+          <img className={styles.avatar} src={contact.photo} alt="Jorge Cervantes" />
+        ) : (
+          <div className={styles.avatarPlaceholder}>JC</div>
+        )}
+
+        <h1 className={styles.title}>Jorge Cervantes</h1>
         <p className={styles.location}>Ciudad Obregón, Sonora, México</p>
         <p className={styles.about}>
           Entre arte visual, <span className={styles.kw}>3D</span> y{' '}
