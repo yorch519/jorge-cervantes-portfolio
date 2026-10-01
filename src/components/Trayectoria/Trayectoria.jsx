@@ -74,7 +74,11 @@ export default function Trayectoria() {
                 {items.map((item) => (
                   <li key={item.id} className={styles.item}>
                     <span className={styles.badge}>
-                      <Icon />
+                      {item.logo ? (
+                        <img className={styles.logo} src={item.logo} alt={item.place} />
+                      ) : (
+                        <Icon />
+                      )}
                     </span>
                     <div className={styles.info}>
                       <p className={styles.dates}>{item.dates}</p>
