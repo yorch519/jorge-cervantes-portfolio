@@ -4,8 +4,8 @@ import { experience, education } from '../../data/trayectoria.js'
 import styles from './Trayectoria.module.css'
 
 const TABS = [
-  { id: 'experiencia', label: 'Experiencia' },
-  { id: 'educacion', label: 'Educación' },
+  { id: 'experiencia', label: 'Experiencia', Icon: BriefcaseIcon },
+  { id: 'educacion', label: 'Educación', Icon: GraduationIcon },
 ]
 
 function BriefcaseIcon() {
@@ -51,6 +51,7 @@ export default function Trayectoria() {
                 className={`${styles.tab} ${active === tab.id ? styles.tabActive : ''}`}
                 onClick={() => setActive(tab.id)}
               >
+                <tab.Icon />
                 {tab.label}
               </button>
             ))}
