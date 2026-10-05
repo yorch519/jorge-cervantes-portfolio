@@ -58,6 +58,10 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .preview {
   position: relative;
   min-height: 220px;

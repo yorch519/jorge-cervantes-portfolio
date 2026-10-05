@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { specialtyProjects } from '../../data/specialtyProjects.js'
+import Lightbox from '../Lightbox/Lightbox.jsx'
 import styles from './ProyectosEspecialidad.module.css'
 
 const reveal = {
@@ -11,6 +13,93 @@ const TONE = {
   orange: 'var(--accent)',
   coral: 'var(--accent-warm)',
   teal: 'var(--accent-cool)',
+}
+
+function toMediaList(media) {
+  if (!media) return []
+  return Array.isArray(media) ? media : [media]
+}
+
+function Card({ project }) {
+  const [active, setActive] = useState(0)
+  const [open, setOpen] = useState(false)
+  const timerRef = useRef(null)
+  const reduced = useReducedMotion()
+
+  const mediaList = toMediaList(project.media)
+  const [file, ...rest] = project.meta.split(' · ')
+
+  const startCycle = () => {
+    if (mediaList.length < 2 || reduced) return
+    timerRef.current = setInterval(() => {
+      setActive((i) => (i + 1) % mediaList.length)
+    }, 3000)
+  }
+
+  const stopCycle = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+      timerRef.current = null
+    }
+    setActive(0)
+  }
+
+  useEffect(() => stopCycle, [])
+
+  const openLightbox = () => setOpen(true)
+  const close = () => setOpen(false)
+  const prev = () => setActive((i) => (i - 1 + mediaList.length) % mediaList.length)
+  const next = () => setActive((i) => (i + 1) % mediaList.length)
+
+  return (
+    <>
+      <motion.article
+        className={`${project.featured ? styles.featured : styles.card} ${mediaList.length ? styles.clickable : ''}`}
+        style={{ '--tone': TONE[project.tone] }}
+        initial="hidden"
+        whileInView="visible"
+        whileHover={{ y: -4 }}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={reveal}
+        transition={{ duration: 0.5 }}
+        onMouseEnter={startCycle}
+        onMouseLeave={stopCycle}
+        onClick={mediaList.length ? openLightbox : undefined}
+      >
+        <div className={`${styles.preview} ${mediaList.length ? styles.previewFilled : ''}`}>
+          {mediaList.length ? (
+            mediaList[active]?.type === 'video' ? (
+              <video
+                className={styles.previewMedia}
+                src={mediaList[active].src}
+                poster={mediaList[active].poster}
+                muted
+                loop
+                playsInline
+                autoPlay
+              />
+            ) : (
+              <img className={styles.previewMedia} src={mediaList[active].src} alt={project.title} />
+            )
+          ) : (
+            <span className={styles.previewLabel}>{file}</span>
+          )}
+        </div>
+        <div className={styles.body}>
+          <h3 className={styles.cardTitle}>{project.title}</h3>
+          <p className={styles.desc}>{project.description}</p>
+          <p className={styles.meta}>
+            <span className={styles.metaAccent}>{file}</span>
+            {rest.length > 0 ? ` · ${rest.join(' · ')}` : ''}
+          </p>
+        </div>
+      </motion.article>
+
+      {open && (
+        <Lightbox items={mediaList} index={active} title={project.title} onClose={close} onPrev={prev} onNext={next} />
+      )}
+    </>
+  )
 }
 
 export default function ProyectosEspecialidad() {
@@ -30,48 +119,9 @@ export default function ProyectosEspecialidad() {
         </motion.header>
 
         <div className={styles.grid}>
-          {specialtyProjects.map((project) => {
-            const [file, ...rest] = project.meta.split(' · ')
-            return (
-              <motion.article
-                key={project.id}
-                className={project.featured ? styles.featured : styles.card}
-                style={{ '--tone': TONE[project.tone] }}
-                initial="hidden"
-                whileInView="visible"
-                whileHover={{ y: -4 }}
-                viewport={{ once: true, amount: 0.2 }}
-                variants={reveal}
-                transition={{ duration: 0.5 }}
-              >
-                <div className={`${styles.preview} ${project.media ? styles.previewFilled : ''}`}>
-                  {project.media?.type === 'video' ? (
-                    <video
-                      className={styles.previewMedia}
-                      src={project.media.src}
-                      poster={project.media.poster}
-                      muted
-                      loop
-                      playsInline
-                      autoPlay
-                    />
-                  ) : project.media?.type === 'image' ? (
-                    <img className={styles.previewMedia} src={project.media.src} alt={project.title} />
-                  ) : (
-                    <span className={styles.previewLabel}>{file}</span>
-                  )}
-                </div>
-                <div className={styles.body}>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <p className={styles.desc}>{project.description}</p>
-                  <p className={styles.meta}>
-                    <span className={styles.metaAccent}>{file}</span>
-                    {rest.length > 0 ? ` · ${rest.join(' · ')}` : ''}
-                  </p>
-                </div>
-              </motion.article>
-            )
-          })}
+          {specialtyProjects.map((project) => (
+            <Card key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </section>
