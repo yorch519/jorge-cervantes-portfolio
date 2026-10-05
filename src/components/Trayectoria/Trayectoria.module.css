@@ -171,4 +171,19 @@
     text-align: center;
     padding: 0.5rem 0.75rem;
   }
+
+  .timeline::before {
+    left: 36px;
+    top: 36px;
+    bottom: 36px;
+  }
+
+  .item {
+    gap: 1rem;
+  }
+
+  .badge {
+    width: 72px;
+    height: 72px;
+  }
 }
