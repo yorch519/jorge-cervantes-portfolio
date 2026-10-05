@@ -7,6 +7,7 @@ export const specialtyProjects = [
     link: '#',
     featured: true,
     tone: 'orange',
+    media: null,
   },
   {
     id: 'reel-video',
@@ -16,6 +17,7 @@ export const specialtyProjects = [
     link: '#',
     featured: false,
     tone: 'coral',
+    media: null,
   },
   {
     id: 'anim-loop',
@@ -25,5 +27,6 @@ export const specialtyProjects = [
     link: '#',
     featured: false,
     tone: 'teal',
+    media: null,
   },
 ]

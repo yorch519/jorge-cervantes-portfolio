@@ -44,8 +44,22 @@ export default function ProyectosEspecialidad() {
                 variants={reveal}
                 transition={{ duration: 0.5 }}
               >
-                <div className={styles.preview}>
-                  <span className={styles.previewLabel}>{file}</span>
+                <div className={`${styles.preview} ${project.media ? styles.previewFilled : ''}`}>
+                  {project.media?.type === 'video' ? (
+                    <video
+                      className={styles.previewMedia}
+                      src={project.media.src}
+                      poster={project.media.poster}
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                    />
+                  ) : project.media?.type === 'image' ? (
+                    <img className={styles.previewMedia} src={project.media.src} alt={project.title} />
+                  ) : (
+                    <span className={styles.previewLabel}>{file}</span>
+                  )}
                 </div>
                 <div className={styles.body}>
                   <h3 className={styles.cardTitle}>{project.title}</h3>

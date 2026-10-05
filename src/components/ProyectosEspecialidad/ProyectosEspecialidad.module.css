@@ -83,6 +83,22 @@
   pointer-events: none;
 }
 
+.previewFilled {
+  background-image: none;
+}
+
+.previewFilled::after {
+  display: none;
+}
+
+.previewMedia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .featured .preview {
   min-height: 420px;
 }
