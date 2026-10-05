@@ -1,38 +1,34 @@
 export const specialtyProjects = [
   {
-    id: 'death-stranding',
-    title: 'Death Stranding — Render de Personaje',
-    description: 'Render fotorrealista de personaje y escena. Modelado, iluminación y composición en Blender.',
-    meta: 'render_01.png · 3840×2160 · Blender',
+    id: 'mountain-ogre',
+    title: 'Mountain Ogre — Modelado 3D',
+    description:
+      'Personaje 3D (ogro de las montañas nevadas): concepto, esculpido de alta densidad, retopología, UVs, texturizado PBR e iluminación en escena final.',
+    meta: 'Maya · Mudbox · Arnold',
     link: '#',
     featured: true,
     tone: 'orange',
-    media: {
-      type: 'image',
-      src: '/media/proyectos/death-stranding/ProyectoDeathStranding1.png',
-    },
+    media: [
+      { type: 'image', src: '/media/proyectos/personaje-3d/Render Primer Plano.jpg' },
+      { type: 'image', src: '/media/proyectos/personaje-3d/Render Plano Entero.jpg' },
+      { type: 'image', src: '/media/proyectos/personaje-3d/Render Contrapicado.jpg' },
+      { type: 'video', src: '/media/proyectos/personaje-3d/Render360Ogro.mp4' },
+    ],
   },
   {
-    id: 'death-stranding-scene',
-    title: 'Death Stranding — Escena',
-    description: 'Vista adicional del personaje y el entorno. Iluminación y composición.',
-    meta: 'render_02.png · 3840×2160 · Blender',
+    id: 'death-stranding',
+    title: 'Death Stranding — Diseño Sonoro',
+    description:
+      'Rediseño de audio y Foley: 5 ambientes grabados del juego, foleys reales en estudio (mochila, paraguas, pasos, escáner) y mezcla con soundtrack original en ProTools.',
+    meta: 'ProTools · Premiere Pro · Estudio',
     link: '#',
     featured: false,
     tone: 'coral',
-    media: {
-      type: 'image',
-      src: '/media/proyectos/death-stranding/ProyectoDeathStranding2.png',
-    },
-  },
-  {
-    id: 'anim-loop',
-    title: 'Animación — Loop Cinemático',
-    description: 'Loop corto de animación procedural para piezas de ambiente.',
-    meta: 'anim_loop.mov · 00:08 · 1080×1080',
-    link: '#',
-    featured: false,
-    tone: 'teal',
-    media: null,
+    media: [
+      { type: 'image', src: '/media/proyectos/death-stranding/ProyectoDeathStranding1.png' },
+      { type: 'image', src: '/media/proyectos/death-stranding/ProyectoDeathStranding2.png' },
+      { type: 'image', src: '/media/proyectos/death-stranding/ProyectoDeathStranding3.png' },
+      { type: 'image', src: '/media/proyectos/death-stranding/ProyectoDeathStranding4.JPG' },
+    ],
   },
 ]

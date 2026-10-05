@@ -1,6 +1,5 @@
 export const contact = {
-  email: 'tu-correo@ejemplo.com',
-  github: 'https://github.com/tuusuario',
-  linkedin: 'https://www.linkedin.com/in/tuusuario',
-  photo: null,
+  email: 'cervantes.valdez.jorge@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/jorge-emilio-cervantes-valdez-28939a412',
+  photo: '/media/avatar/IMG_6368.jpg',
 }
