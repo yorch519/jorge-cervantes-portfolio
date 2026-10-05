@@ -13,17 +13,16 @@ export const specialtyProjects = [
     },
   },
   {
-    id: 'death-stranding-reel',
-    title: 'Death Stranding — Reel',
-    description: 'Video de la escena con cámara y postproducción.',
-    meta: 'death_stranding.mp4 · 1920×1080',
+    id: 'death-stranding-scene',
+    title: 'Death Stranding — Escena',
+    description: 'Vista adicional del personaje y el entorno. Iluminación y composición.',
+    meta: 'render_02.png · 3840×2160 · Blender',
     link: '#',
     featured: false,
     tone: 'coral',
     media: {
-      type: 'video',
-      src: '/media/proyectos/death-stranding/ProyectoDeathStranding.mp4',
-      poster: '/media/proyectos/death-stranding/ProyectoDeathStranding1.png',
+      type: 'image',
+      src: '/media/proyectos/death-stranding/ProyectoDeathStranding2.png',
     },
   },
   {
