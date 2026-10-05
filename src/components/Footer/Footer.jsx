@@ -25,9 +25,6 @@ export default function Footer() {
           <a className={styles.link} href={`mailto:${contact.email}`}>
             {contact.email}
           </a>
-          <a className={styles.link} href={contact.github} target="_blank" rel="noreferrer">
-            GitHub <span className={styles.arrow}>↗</span>
-          </a>
           <a className={styles.link} href={contact.linkedin} target="_blank" rel="noreferrer">
             LinkedIn <span className={styles.arrow}>↗</span>
           </a>
