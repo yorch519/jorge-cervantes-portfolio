@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { experience, education } from '../../data/trayectoria.js'
+import Lightbox from '../Lightbox/Lightbox.jsx'
 import styles from './Trayectoria.module.css'
 
 const TABS = [
@@ -11,6 +12,11 @@ const TABS = [
 const reveal = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
+}
+
+function toMediaList(media) {
+  if (!media) return []
+  return Array.isArray(media) ? media : [media]
 }
 
 function BriefcaseIcon() {
@@ -33,8 +39,15 @@ function GraduationIcon() {
 
 export default function Trayectoria() {
   const [active, setActive] = useState('experiencia')
+  const [lightbox, setLightbox] = useState(null)
+
   const items = active === 'experiencia' ? experience : education
   const Icon = active === 'experiencia' ? BriefcaseIcon : GraduationIcon
+
+  const openGallery = (media, title) => setLightbox({ items: media, title, index: 0 })
+  const close = () => setLightbox(null)
+  const prev = () => setLightbox((s) => s && { ...s, index: (s.index - 1 + s.items.length) % s.items.length })
+  const next = () => setLightbox((s) => s && { ...s, index: (s.index + 1) % s.items.length })
 
   return (
     <section className={styles.section} id="trayectoria">
@@ -91,28 +104,63 @@ export default function Trayectoria() {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
               >
-                {items.map((item) => (
-                  <li key={item.id} className={styles.item}>
-                    <span className={styles.badge}>
-                      {item.logo ? (
-                        <img className={styles.logo} src={item.logo} alt={item.place} />
-                      ) : (
-                        <Icon />
+                {items.map((item) => {
+                  const mediaList = toMediaList(item.media)
+                  const first = mediaList[0]
+                  const thumbSrc = first?.type === 'video' ? first.poster : first?.src
+
+                  return (
+                    <li key={item.id} className={styles.item}>
+                      <span className={styles.badge}>
+                        {item.logo ? (
+                          <img className={styles.logo} src={item.logo} alt={item.place} />
+                        ) : (
+                          <Icon />
+                        )}
+                      </span>
+                      <div className={styles.info}>
+                        <p className={styles.dates}>{item.dates}</p>
+                        <h3 className={styles.itemTitle}>{item.title}</h3>
+                        <p className={styles.itemPlace}>{item.place}</p>
+                        <p className={styles.itemDesc}>{item.description}</p>
+                        {item.highlights?.length > 0 && (
+                          <ul className={styles.highlights}>
+                            {item.highlights.map((highlight) => (
+                              <li key={highlight} className={styles.highlight}>
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                      {mediaList.length > 0 && thumbSrc && (
+                        <button
+                          className={styles.thumb}
+                          onClick={() => openGallery(mediaList, item.title)}
+                          aria-label={`Ver galería de ${item.title}`}
+                        >
+                          <img src={thumbSrc} alt={item.title} />
+                        </button>
                       )}
-                    </span>
-                    <div className={styles.info}>
-                      <p className={styles.dates}>{item.dates}</p>
-                      <h3 className={styles.itemTitle}>{item.title}</h3>
-                      <p className={styles.itemPlace}>{item.place}</p>
-                      <p className={styles.itemDesc}>{item.description}</p>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  )
+                })}
               </motion.ul>
             </AnimatePresence>
           </div>
         </motion.div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          items={lightbox.items}
+          index={lightbox.index}
+          title={lightbox.title}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
     </section>
   )
 }

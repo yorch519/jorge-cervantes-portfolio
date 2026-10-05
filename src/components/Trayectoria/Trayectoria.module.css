@@ -125,10 +125,60 @@
 
 .info {
   min-width: 0;
+  flex: 1;
 }
 
 .info > * + * {
   margin-top: 0.5rem;
+}
+
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.highlight {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--bg-elevated);
+  padding: 0;
+  transition: border-color 0.2s ease;
+}
+
+.thumb:hover {
+  border-color: var(--accent);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .dates {
@@ -185,5 +235,10 @@
   .badge {
     width: 72px;
     height: 72px;
+  }
+
+  .thumb {
+    width: 56px;
+    height: 56px;
   }
 }
