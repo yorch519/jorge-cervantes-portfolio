@@ -8,6 +8,11 @@ const TABS = [
   { id: 'educacion', label: 'Educación', Icon: GraduationIcon },
 ]
 
+const reveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+}
+
 function BriefcaseIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -34,12 +39,26 @@ export default function Trayectoria() {
   return (
     <section className={styles.section} id="trayectoria">
       <div className={styles.wrap}>
-        <header className={styles.header}>
+        <motion.header
+          className={styles.header}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={reveal}
+          transition={{ duration: 0.5 }}
+        >
           <p className={styles.label}>01 — Trayectoria</p>
           <h2 className={styles.title}>Experiencia & Educación</h2>
-        </header>
+        </motion.header>
 
-        <div className={styles.container}>
+        <motion.div
+          className={styles.container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={reveal}
+          transition={{ duration: 0.5 }}
+        >
           <div className={styles.tabs} role="tablist" aria-label="Experiencia y educación">
             {TABS.map((tab) => (
               <button
@@ -92,7 +111,7 @@ export default function Trayectoria() {
               </motion.ul>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

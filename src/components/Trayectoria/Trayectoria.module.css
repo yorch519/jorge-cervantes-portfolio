@@ -127,12 +127,15 @@
   min-width: 0;
 }
 
+.info > * + * {
+  margin-top: 0.5rem;
+}
+
 .dates {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 0.05em;
   color: var(--text-secondary);
-  margin-bottom: 0.3rem;
 }
 
 .itemTitle {
@@ -145,7 +148,6 @@
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--text-secondary);
-  margin: 0.35rem 0 0.6rem;
 }
 
 .itemDesc {
