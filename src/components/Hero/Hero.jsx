@@ -51,15 +51,15 @@ export default function Hero() {
       </div>
 
       <div className={styles.hud}>
-        <p className={styles.kicker}>Productor Multimedia</p>
+        <p className={styles.kicker}>Estudiante de Ing. en Producción Multimedia</p>
 
         {contact.photo ? (
-          <img className={styles.avatar} src={contact.photo} alt="Jorge Cervantes" />
+          <img className={styles.avatar} src={contact.photo} alt="Jorge E. Cervantes" />
         ) : (
           <div className={styles.avatarPlaceholder}>JC</div>
         )}
 
-        <h1 className={styles.title}>Jorge Cervantes</h1>
+        <h1 className={styles.title}>Jorge E. Cervantes</h1>
         <p className={styles.location}>
           <svg className={styles.pin} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 21s-7-5.3-7-11a7 7 0 1 1 14 0c0 5.7-7 11-7 11z" />
@@ -67,10 +67,14 @@ export default function Hero() {
           </svg>
           Ciudad Obregón, Sonora, México
         </p>
+        <p className={styles.availability}>
+          <span className={styles.dot} />
+          Disponible para prácticas
+        </p>
         <p className={styles.about}>
-          Entre arte visual, <span className={styles.kw}>3D</span> y{' '}
-          <span className={styles.kwCool}>código</span>. Produzco renders, video y
-          aplicaciones web con foco en el resultado, no en la teoría.
+          Me muevo entre el <span className={styles.kw}>desarrollo web</span> y la{' '}
+          <span className={styles.kwCool}>producción visual</span>, combinando código,
+          modelado 3D y diseño sonoro para crear experiencias digitales.
         </p>
 
         <div className={styles.icons}>

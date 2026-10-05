@@ -96,6 +96,35 @@
   color: var(--accent);
 }
 
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-warm);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-warm);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 .about {
   margin: 0 0 1.5rem;
   max-width: 42ch;
@@ -168,6 +197,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .scroll {
+    animation: none;
+  }
+
+  .dot {
     animation: none;
   }
 }
