@@ -5,3 +5,6 @@ dist
 .opencode/
 /Media/
 INFORMATION.md
+instructions.md
+PROMPT_CONTEXT.md
+GIT_WORKFLOW.md
